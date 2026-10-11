@@ -17,3 +17,6 @@ Empresa de desarrollo de software dedicada a crear soluciones y automatizaciones
 - `equipo/`: Perfiles profesionales de cada integrante del equipo.
 - `CONTRIBUTING.md`: Reglas del equipo para ramas, commits y Pull Requests.
 - `.gitignore`: Archivos y carpetas ignorados por Git (`.venv/`, `.env`, `__pycache__/`, etc.).
+
+## Contacto
+- **Número telefónico oficial:** +57 320 6793309
