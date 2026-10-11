@@ -1,57 +1,44 @@
-# Reglas de trabajo del equipo - Overload Tech
+# Reglas de Trabajo de Overload Tech
 
-## 1. Convención de nombres para ramas
+Bienvenido al repositorio de **Overload Tech**. Para mantener un flujo de trabajo profesional, limpio y ordenado, todos los integrantes del equipo (**Esteban**, **Josué** y **Mateo**) debemos cumplir estrictamente con las siguientes normas de desarrollo.
 
-Usaremos el **número del issue** seguido de una breve descripción en **kebab-case**.
+---
 
-**Formato:**
-```text
-<NÚMERO-ISSUE>-descripcion-corta
-```
+## 👥 1. Estructura del Equipo
+* **Líder de Proyecto:** Esteban
+* **Desarrolladores:** Josué y Mateo
 
-**Ejemplos:**
-- `2-reglas-del-equipo`
-- `4-estructura-carpetas`
-- `5-archivos-perfil-integrantes`
-- `1-actualizar-readme`
+---
 
-## 2. Convención para escribir commits
+## 🌿 2. Flujo de Ramas y Protección de Main
+1. **Rama `main` Protegida:** Queda prohibido realizar `git push` directamente a `main`.
+2. **Creación de Ramas:** Antes de iniciar cualquier tarea, debes actualizar tu `main` local (`git pull`) y crear una rama propia partiendo del número del issue correspondiente.
+   * **Formato de nombre de rama:** `<numero-issue>-<nombre-corto>`
+   * **Ejemplo:** `2-reglas-contributing` o `3-perfil-mateo`
 
-Seguiremos el estándar **Conventional Commits** para mantener un historial claro.
+---
 
-| Tipo | Cuándo usar |
-|---|---|
-| `feat:` | Nueva funcionalidad |
-| `fix:` | Corrección de errores |
-| `docs:` | Cambios en documentación |
-| `style:` | Cambios de formato (espacios, indentación) sin alterar lógica |
-| `refactor:` | Reestructuración de código sin añadir/corregir funcionalidad |
-| `test:` | Añadir o modificar pruebas |
-| `chore:` | Tareas menores, configuración o limpieza |
+## 📝 3. Convención de Commits
+Todos los mensajes de commit deben ser claros, en minúsculas y seguir la convención del tipo de cambio realizado:
+* `docs:` Para cambios o adiciones en documentación (`README`, `CONTRIBUTING`, perfiles).
+* `feat:` Para nuevas funcionalidades o estructuras iniciales.
+* `fix:` Para correcciones de errores.
+* `chore:` Para tareas de mantenimiento o pruebas.
 
-**Ejemplos:**
-- `docs: agrega archivo CONTRIBUTING.md con reglas del equipo`
-- `docs: crea perfiles de los integrantes en equipo/`
-- `chore: añade .gitignore y estructura inicial`
+**Ejemplo:** `docs: agrega reglas del equipo en CONTRIBUTING.md`
 
-## 3. Regla de revisión en cadena
+---
 
-Para garantizar una revisión cruzada entre todos los integrantes, seguiremos este orden:
+## 🔄 4. Revisiones en Cadena (Code Review)
+Ningún cambio entra a `main` sin la aprobación de un compañero. La revisión se realiza en cadena cíclica:
+* **Esteban** revisa a **Josué**.
+* **Josué** revisa a **Mateo**.
+* **Mateo** revisa a **Esteban**.
 
-1. **josuealvarez21** revisa los Pull Requests de **luismateo24**
-2. **luismateo24** revisa los Pull Requests de **estebanrpodev**
-3. **estebanrpodev** revisa los Pull Requests de **josuealvarez21**
-
-## 4. Requisitos obligatorios para aprobar un Pull Request
-
-Antes de hacer **merge** a `main`, todo Pull Request debe cumplir los siguientes requisitos:
-
-- [ ] **Vinculado al issue:** Incluir `Closes #N` o `Resolves #N` en la descripción.
-- [ ] **Título claro:** Debe describir brevemente el cambio realizado.
-- [ ] **Descripción completa:** Explicar qué se hizo, por qué y qué archivos se modificaron.
-- [ ] **Nombre de rama correcto:** Seguir la convención definida en el punto 1.
-- [ ] **Commits con convención correcta:** Usar el formato Conventional Commits.
-- [ ] **Sin archivos innecesarios:** Solo subir lo estrictamente relacionado al issue.
-- [ ] **Sin conflictos:** Actualizar con `main` y resolver conflictos si existen.
-- [ ] **Aprobación del revisor:** Contar con al menos **1 aprobación** del revisor correspondiente según la revisión en cadena.
-- [ ] **Coherente con el repositorio:** Respetar estructura, nombres, estilo y patrones existentes.
+### Reglas para la revisión:
+1. El autor abre el **Pull Request (PR)** hacia `main`.
+2. En la descripción del PR DEBE escribir obligatoriamente: `Closes #NUMERO_ISSUE` (por ejemplo: `Closes #2`).
+3. El revisor asignado entra a **Files changed**, analiza los cambios y **debe dejar al menos un comentario con sugerencia o mejora** usando el botón `+` sobre una línea.
+4. El autor realiza las correcciones necesarias en su misma rama, vuelve a subir los cambios (`git push`), responde el comentario indicando lo modificado y da clic en **Resolve conversation**.
+5. Una vez todo esté corregido, el revisor aprueba con **Review changes → Approve**.
+6. El autor realiza el **Merge** de la Pull Request y elimina la rama remota en GitHub.
