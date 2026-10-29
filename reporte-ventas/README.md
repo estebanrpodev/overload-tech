@@ -24,16 +24,18 @@ una gráfica interactiva para presentar en la reunión de gerencia.
 
 ## Alcance de esta entrega
 
-Esta entrega incluye dos piezas:
+Esta entrega incluye tres piezas:
 
 - **`generar_datos.py`** (issue #19): genera el dataset de prueba con errores
   intencionales para validar la robustez del sistema.
 - **`reporte.py`** (issue #20): lee el archivo mensual, descarta y cuenta las
   filas dañadas, calcula los totales y escribe `salida/reporte.md`.
+- **`grafica.py`** (issue #21): genera la gráfica de barras interactiva en
+  `salida/grafica.html` con Plotly.
 
-La gráfica interactiva (`grafica.py`, issue #21) y la configuración externa
-(`cargar.py` / `config.json`, issue #22) se abordan en tickets posteriores. Hasta
-que existan, `reporte.py` funciona con su lector interno y omite la gráfica.
+La configuración externa (`cargar.py` / `config.json`, issue #22) se aborda en
+un ticket posterior. Hasta que exista, `reporte.py` usa su configuración y su
+lector interno como respaldo.
 
 ## Datos generados
 
@@ -62,9 +64,40 @@ El script crea `datos/registros.csv` con **100 filas válidas + 6 filas dañadas
 | 105 | Fecha inválida: `31/02/2026` (el 31 de febrero no existe). |
 | 106 | Fecha inválida: `2026-13-45` (mes y día fuera de rango). |
 
+## Requisitos e instalación
+
+**Requisito:** Python 3.10 o superior.
+
+`generar_datos.py` y `reporte.py` usan solo la librería estándar, pero
+`grafica.py` necesita **Plotly** y **pandas**. Instálalos en un entorno virtual:
+
+```bash
+cd reporte-ventas
+python -m venv .venv
+```
+
+Activa el entorno (Windows):
+
+```bash
+.venv\Scripts\activate
+```
+
+Activa el entorno (macOS / Linux):
+
+```bash
+source .venv/bin/activate
+```
+
+Instala las dependencias:
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Cómo ejecutar el generador
 
-**Requisito:** Python 3.10 o superior. No se necesitan librerías externas.
+**Requisito:** Python 3.10 o superior. El generador no necesita librerías
+externas.
 
 1. Abre una terminal y ubícate en la carpeta del proyecto:
 
@@ -116,18 +149,17 @@ python reporte-ventas/reporte.py
 Salida esperada:
 
 ```text
-Aviso: grafica.py no esta disponible; se omite la grafica interactiva.
 Archivo de datos: .../reporte-ventas/datos/registros.csv
 Filas leidas: 106
 Registros validos: 100
 Filas descartadas: 6
 Valor total: $56.745.000
+Grafica generada: .../reporte-ventas/salida/grafica.html
 Reporte generado: .../reporte-ventas/salida/reporte.md
 ```
 
-El aviso de `grafica.py` solo aparece mientras el issue #21 no esté integrado.
-Cuando `grafica.py` y `cargar.py` existan en esta carpeta, `reporte.py` los usa
-automáticamente; el lector interno queda como respaldo.
+Si las dependencias de `requirements.txt` no están instaladas, el programa
+avisa, omite solo la gráfica y genera igualmente `salida/reporte.md`.
 
 ### Contenido del reporte
 
@@ -150,6 +182,23 @@ Con el dataset de ejemplo los totales son:
 | Ropa | 91 | $14.110.000 | 24,87 % |
 | Accesorios | 80 | $4.035.000 | 7,11 % |
 | **Total** | **249** | **$56.745.000** | **100,00 %** |
+
+### Gráfica interactiva
+
+`grafica.py` genera `salida/grafica.html` con `plotly.express`:
+
+- Barras ordenadas de mayor a menor y con un color por categoría.
+- Valor en pesos sobre cada barra (por ejemplo `$38.600.000`).
+- Al pasar el cursor muestra categoría, ventas y porcentaje del total.
+- Título con el cliente y subtítulo con el periodo del reporte.
+- Estilo claro (`plotly_white`) y diseño responsivo.
+
+El HTML es **autocontenido** (incluye Plotly dentro del archivo, ~4,6 MB), así
+que se abre con doble clic en cualquier navegador **sin conexión a internet**.
+El enlace también aparece al final de `salida/reporte.md`.
+
+`reporte.py` llama a `crear_grafica(categorias, valores, ruta)` con los totales
+ya calculados; si la gráfica falla, el reporte Markdown se genera igual.
 
 ### Opciones de línea de comandos
 
@@ -176,6 +225,8 @@ reporte-ventas/
 ├── datos/registros.csv   # archivo mensual (generado por generar_datos.py)
 ├── generar_datos.py      # dataset de prueba con errores intencionales (#19)
 ├── reporte.py            # procesamiento y reporte Markdown (#20)
+├── grafica.py            # gráfica interactiva con Plotly (#21)
+├── requirements.txt      # dependencias de la gráfica (plotly, pandas)
 └── salida/               # reporte.md y grafica.html (generados, no se versionan)
 ```
 
