@@ -27,3 +27,6 @@ yarn-error.log*
 
 # Entorno
 .env
+
+# Salidas generadas por reporte.py
+reporte-ventas/salida/
