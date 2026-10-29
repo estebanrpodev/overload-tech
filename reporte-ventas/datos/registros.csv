@@ -1,0 +1,107 @@
+id,fecha,producto,categoria,cantidad,precio_unitario,medio_pago,estado
+1,2026-09-26,Gorra Snapback,Accesorios,1,85000,tarjeta debito,enviado
+2,2026-09-10,Sudadera Crewneck,Ropa,2,140000,efectivo,pagado
+3,2026-09-09,Jogger Cargo,Ropa,1,160000,tarjeta credito,pagado
+4,2026-09-07,Botella Termica,Accesorios,1,50000,efectivo,entregado
+5,2026-09-28,Chaqueta Cortavientos,Ropa,1,270000,efectivo,enviado
+6,2026-09-19,Air Force 1,Calzado,4,420000,transferencia,pendiente
+7,2026-09-17,Sudadera Crewneck,Ropa,2,160000,tarjeta debito,cancelado
+8,2026-09-24,Botella Termica,Accesorios,1,50000,transferencia,pagado
+9,2026-09-21,Jordan 1 Retro,Calzado,4,510000,nequi,pendiente
+10,2026-09-15,Hoodie Oversize,Ropa,4,210000,efectivo,entregado
+11,2026-09-16,Sudadera Crewneck,Ropa,3,160000,nequi,cancelado
+12,2026-09-08,Air Max 90,Calzado,1,320000,transferencia,enviado
+13,2026-09-22,Hoodie Oversize,Ropa,3,140000,transferencia,pagado
+14,2026-09-10,Chaqueta Cortavientos,Ropa,2,220000,transferencia,pagado
+15,2026-09-25,Pantaloneta Deportiva,Ropa,1,70000,tarjeta debito,pagado
+16,2026-09-04,Canguro,Accesorios,4,50000,transferencia,entregado
+17,2026-09-01,Pantaloneta Deportiva,Ropa,2,100000,tarjeta credito,pagado
+18,2026-09-06,Jordan 1 Retro,Calzado,4,630000,transferencia,cancelado
+19,2026-09-20,Ultraboost 22,Calzado,4,590000,efectivo,enviado
+20,2026-09-05,Cordones Reflective,Accesorios,1,25000,nequi,pendiente
+21,2026-09-02,Pantaloneta Deportiva,Ropa,3,90000,tarjeta debito,pagado
+22,2026-09-02,Medias Deportivas,Accesorios,1,28000,tarjeta debito,pagado
+23,2026-09-17,Forum Low,Calzado,4,400000,nequi,pagado
+24,2026-09-26,Sudadera Crewneck,Ropa,3,180000,tarjeta credito,pendiente
+25,2026-09-17,Cordones Reflective,Accesorios,3,35000,nequi,entregado
+26,2026-09-02,Chaqueta Cortavientos,Ropa,2,170000,efectivo,enviado
+27,2026-09-09,Air Force 1,Calzado,4,420000,tarjeta credito,pagado
+28,2026-09-15,Camiseta Boxy,Ropa,3,110000,efectivo,pendiente
+29,2026-09-17,Cordones Reflective,Accesorios,4,25000,nequi,pagado
+30,2026-09-11,Hoodie Oversize,Ropa,4,170000,transferencia,entregado
+31,2026-09-02,Medias Deportivas,Accesorios,3,28000,tarjeta credito,pagado
+32,2026-09-02,Chuck Taylor,Calzado,2,200000,transferencia,pendiente
+33,2026-09-04,Botella Termica,Accesorios,1,40000,nequi,enviado
+34,2026-09-20,Jordan 1 Retro,Calzado,3,600000,nequi,pendiente
+35,2026-09-09,Gorra Snapback,Accesorios,2,55000,tarjeta debito,pagado
+36,2026-09-05,Gel-Kayano 14,Calzado,1,620000,transferencia,pagado
+37,2026-09-19,Canguro,Accesorios,2,70000,efectivo,pendiente
+38,2026-09-05,Forum Low,Calzado,3,350000,nequi,pagado
+39,2026-09-10,Canguro,Accesorios,1,90000,transferencia,pagado
+40,2026-09-16,Air Force 1,Calzado,2,420000,nequi,pagado
+41,2026-09-15,Jogger Cargo,Ropa,1,190000,transferencia,pagado
+42,2026-09-22,Gym Sack,Accesorios,3,45000,efectivo,cancelado
+43,2026-09-21,Chaqueta Cortavientos,Ropa,2,260000,nequi,pagado
+44,2026-09-06,Gel-Kayano 14,Calzado,4,420000,tarjeta credito,cancelado
+45,2026-09-19,Chaqueta Cortavientos,Ropa,1,240000,efectivo,pendiente
+46,2026-09-09,Air Force 1,Calzado,2,450000,tarjeta debito,pendiente
+47,2026-09-09,Canguro,Accesorios,4,80000,efectivo,pagado
+48,2026-09-14,Jordan 1 Retro,Calzado,1,620000,nequi,cancelado
+49,2026-09-11,Sudadera Crewneck,Ropa,2,140000,tarjeta debito,cancelado
+50,2026-09-01,Forum Low,Calzado,1,290000,efectivo,pendiente
+51,2026-09-03,Gel-Kayano 14,Calzado,1,420000,transferencia,pendiente
+52,2026-09-12,Jogger Cargo,Ropa,3,150000,tarjeta debito,pagado
+53,2026-09-02,Gorra Snapback,Accesorios,3,55000,efectivo,pendiente
+54,2026-09-12,Chaqueta Cortavientos,Ropa,3,260000,transferencia,pagado
+55,2026-09-26,Cordones Reflective,Accesorios,2,15000,nequi,pagado
+56,2026-09-13,Sudadera Crewneck,Ropa,3,100000,tarjeta debito,entregado
+57,2026-09-01,Hoodie Oversize,Ropa,4,150000,nequi,pagado
+58,2026-09-21,Jordan 1 Retro,Calzado,4,550000,nequi,pagado
+59,2026-09-04,Forum Low,Calzado,2,380000,transferencia,entregado
+60,2026-09-07,Canguro,Accesorios,1,90000,nequi,enviado
+61,2026-09-07,Sudadera Crewneck,Ropa,3,180000,tarjeta debito,pendiente
+62,2026-09-07,Botella Termica,Accesorios,1,40000,tarjeta credito,cancelado
+63,2026-09-14,Pantaloneta Deportiva,Ropa,4,80000,nequi,pagado
+64,2026-09-13,Cordones Reflective,Accesorios,1,35000,nequi,pendiente
+65,2026-09-19,Canguro,Accesorios,3,90000,nequi,pagado
+66,2026-09-25,Chaqueta Cortavientos,Ropa,3,160000,transferencia,pagado
+67,2026-09-13,Botella Termica,Accesorios,2,40000,transferencia,entregado
+68,2026-09-26,Ultraboost 22,Calzado,1,610000,efectivo,cancelado
+69,2026-09-05,Pantaloneta Deportiva,Ropa,4,100000,tarjeta credito,pendiente
+70,2026-09-02,Gel-Kayano 14,Calzado,2,570000,efectivo,pendiente
+71,2026-09-11,Camiseta Boxy,Ropa,4,90000,tarjeta debito,pagado
+72,2026-09-27,Forum Low,Calzado,3,320000,nequi,enviado
+73,2026-09-20,Jogger Cargo,Ropa,4,170000,efectivo,cancelado
+74,2026-09-12,Ultraboost 22,Calzado,2,440000,efectivo,cancelado
+75,2026-09-24,Air Max 90,Calzado,3,340000,tarjeta credito,entregado
+76,2026-09-16,Medias Deportivas,Accesorios,3,38000,transferencia,enviado
+77,2026-09-26,Chaqueta Cortavientos,Ropa,1,160000,nequi,pagado
+78,2026-09-07,Camiseta Boxy,Ropa,3,70000,tarjeta credito,pagado
+79,2026-09-16,Canguro,Accesorios,3,60000,tarjeta credito,pagado
+80,2026-09-02,Botella Termica,Accesorios,4,70000,tarjeta credito,pendiente
+81,2026-09-03,Cordones Reflective,Accesorios,4,15000,tarjeta credito,enviado
+82,2026-09-20,Jordan 1 Retro,Calzado,2,680000,tarjeta debito,entregado
+83,2026-09-15,Canguro,Accesorios,3,110000,tarjeta credito,pagado
+84,2026-09-26,Cordones Reflective,Accesorios,2,25000,efectivo,pagado
+85,2026-09-19,Canguro,Accesorios,2,70000,tarjeta credito,cancelado
+86,2026-09-01,Medias Deportivas,Accesorios,3,28000,tarjeta debito,pagado
+87,2026-09-22,Gym Sack,Accesorios,2,35000,transferencia,pendiente
+88,2026-09-12,Forum Low,Calzado,3,370000,tarjeta credito,pendiente
+89,2026-09-22,Jogger Cargo,Ropa,2,190000,efectivo,pagado
+90,2026-09-12,Botella Termica,Accesorios,1,70000,tarjeta credito,cancelado
+91,2026-09-06,Chaqueta Cortavientos,Ropa,4,220000,tarjeta debito,pagado
+92,2026-09-02,Jogger Cargo,Ropa,2,160000,efectivo,pagado
+93,2026-09-22,Hoodie Oversize,Ropa,2,190000,transferencia,cancelado
+94,2026-09-05,Botella Termica,Accesorios,1,60000,transferencia,enviado
+95,2026-09-14,Cordones Reflective,Accesorios,2,15000,efectivo,pagado
+96,2026-09-27,Ultraboost 22,Calzado,3,620000,nequi,pagado
+97,2026-09-20,Gym Sack,Accesorios,4,65000,tarjeta credito,pagado
+98,2026-09-15,Jordan 1 Retro,Calzado,4,760000,efectivo,entregado
+99,2026-09-28,Jordan 1 Retro,Calzado,4,710000,nequi,pagado
+100,2026-09-03,Cordones Reflective,Accesorios,1,35000,tarjeta debito,pagado
+101,2026-09-03,Jordan 1 Retro,Calzado,,520000,tarjeta credito,pagado
+102,2026-09-07,Jordan 1 Retro,Calzado,1,,tarjeta credito,pagado
+103,2026-09-11,Jordan 1 Retro,Calzado,dos,520000,tarjeta credito,pagado
+104,2026-09-14,Jordan 1 Retro,Calzado,1,mil doscientos,tarjeta credito,pagado
+105,31/02/2026,Jordan 1 Retro,Calzado,1,520000,tarjeta credito,pagado
+106,2026-13-45,Jordan 1 Retro,Calzado,1,520000,tarjeta credito,pagado
