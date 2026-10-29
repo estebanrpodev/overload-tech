@@ -1,0 +1,10 @@
+{
+  "cliente": "SNEAKER LAB",
+  "archivo_datos": "datos/registros.csv",
+  "columna_categoria": "categoria",
+  "columna_valor": "precio_unitario",
+  "columna_cantidad": "cantidad",
+  "columna_fecha": "fecha",
+  "ruta_reporte": "salida/reporte.md",
+  "ruta_grafica": "salida/grafica.html"
+}
