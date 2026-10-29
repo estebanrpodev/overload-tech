@@ -6,7 +6,8 @@ categoria, y escribe el informe en salida/reporte.md.
 
 Si existen los modulos cargar.py (issue #22) y grafica.py (issue #21) en esta
 misma carpeta, se usan automaticamente; si todavia no existen, el programa
-funciona igual con su lector interno y omite la grafica.
+funciona igual con su lector interno y omite la grafica. La grafica requiere
+las dependencias de requirements.txt (plotly y pandas).
 """
 
 import argparse
@@ -249,20 +250,28 @@ def describir_periodo(fechas):
     )
 
 
-def generar_grafica(categorias, valores, ruta_grafica):
+def generar_grafica(categorias, valores, ruta_grafica, cliente, periodo):
     """Genera la grafica interactiva con grafica.py (issue #21) si existe."""
     try:
         import grafica
-    except ImportError:
+    except ImportError as error:
         print(
-            "Aviso: grafica.py no esta disponible; se omite la grafica interactiva.",
+            "Aviso: no se pudo cargar grafica.py "
+            f"({error}). Verifica que exista y que las dependencias de "
+            "requirements.txt esten instaladas; se omite la grafica.",
             file=sys.stderr,
         )
         return False
 
     try:
         ruta_grafica.parent.mkdir(parents=True, exist_ok=True)
-        grafica.crear_grafica(categorias, valores, str(ruta_grafica))
+        grafica.crear_grafica(
+            categorias,
+            valores,
+            str(ruta_grafica),
+            cliente=cliente,
+            periodo=periodo,
+        )
     except Exception as error:
         print(f"Aviso: no se pudo generar la grafica ({error}).", file=sys.stderr)
         return False
@@ -276,6 +285,7 @@ def generar_markdown(
     totales,
     total_leidos,
     descartes,
+    periodo,
     ruta_reporte,
     ruta_grafica,
     grafica_generada,
@@ -283,7 +293,6 @@ def generar_markdown(
     """Construye el contenido del reporte en Markdown y lo guarda en disco."""
     descartadas = len(descartes)
     validas = len(registros)
-    periodo = describir_periodo([registro["fecha"] for registro in registros])
     generado = datetime.now().strftime("%Y-%m-%d %H:%M")
     porcentaje_total = "100,00 %" if totales["total"] else "0,00 %"
 
@@ -432,12 +441,15 @@ def main(argv=None):
         return 1
 
     totales = calcular_totales(registros)
+    periodo = describir_periodo([registro["fecha"] for registro in registros])
 
     grafica_generada = False
     if registros:
         categorias = list(totales["categorias"])
         valores = [datos["valor"] for datos in totales["categorias"].values()]
-        grafica_generada = generar_grafica(categorias, valores, ruta_grafica)
+        grafica_generada = generar_grafica(
+            categorias, valores, ruta_grafica, config["cliente"], periodo
+        )
 
     generar_markdown(
         config,
@@ -445,6 +457,7 @@ def main(argv=None):
         totales,
         total_leidos,
         descartes,
+        periodo,
         ruta_reporte,
         ruta_grafica,
         grafica_generada,
@@ -455,6 +468,8 @@ def main(argv=None):
     print(f"Registros validos: {len(registros)}")
     print(f"Filas descartadas: {len(descartes)}")
     print(f"Valor total: {formatear_pesos(totales['total'])}")
+    if grafica_generada:
+        print(f"Grafica generada: {ruta_grafica}")
     print(f"Reporte generado: {ruta_reporte}")
 
     if not registros:
