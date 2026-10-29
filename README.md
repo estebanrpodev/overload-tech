@@ -29,10 +29,12 @@ SNEAKER LAB. El proyecto parte de un archivo mensual de ventas con errores
 intencionales y lo procesa para obtener el total vendido y los totales por
 categoría.
 
-Estado actual (issue #19): `reporte-ventas/generar_datos.py` genera
+Estado actual (issues #19 y #20): `reporte-ventas/generar_datos.py` genera
 `reporte-ventas/datos/registros.csv` con 100 filas válidas y 6 filas dañadas
-a propósito, usando únicamente la librería estándar de Python. Los detalles y
-las instrucciones de ejecución están en
+a propósito, y `reporte-ventas/reporte.py` procesa ese archivo, descarta las
+filas inválidas y escribe `reporte-ventas/salida/reporte.md` con los totales
+generales y por categoría. Todo usa únicamente la librería estándar de Python.
+Los detalles y las instrucciones de ejecución están en
 [`reporte-ventas/README.md`](reporte-ventas/README.md).
 
 ## Contacto
