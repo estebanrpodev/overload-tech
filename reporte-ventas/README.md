@@ -24,7 +24,7 @@ una gráfica interactiva para presentar en la reunión de gerencia.
 
 ## Alcance de esta entrega
 
-Esta entrega incluye tres piezas:
+Esta entrega incluye cuatro piezas:
 
 - **`generar_datos.py`** (issue #19): genera el dataset de prueba con errores
   intencionales para validar la robustez del sistema.
@@ -32,10 +32,41 @@ Esta entrega incluye tres piezas:
   filas dañadas, calcula los totales y escribe `salida/reporte.md`.
 - **`grafica.py`** (issue #21): genera la gráfica de barras interactiva en
   `salida/grafica.html` con Plotly.
+- **`cargar.py` / `config.json`** (issue #22): permiten cambiar rutas, columnas
+  y datos del cliente sin modificar el código Python.
 
-La configuración externa (`cargar.py` / `config.json`, issue #22) se aborda en
-un ticket posterior. Hasta que exista, `reporte.py` usa su configuración y su
-lector interno como respaldo.
+## Configuración externa (`config.json`)
+
+`cargar.py` permite cambiar rutas, columnas y datos del cliente sin tocar el
+código. `reporte.py` importa `leer_registros(config)` automáticamente; si el
+módulo no está disponible, usa su lector interno como respaldo.
+
+Claves disponibles en `config.json`:
+
+| Clave | Descripción | Valor por defecto |
+| :--- | :--- | :--- |
+| `cliente` | Nombre del cliente para el reporte. | `SNEAKER LAB` |
+| `archivo_datos` | Ruta del CSV de entrada (relativa a `reporte-ventas/` o absoluta). | `datos/registros.csv` |
+| `columna_categoria` | Columna con la categoría del producto. | `categoria` |
+| `columna_valor` | Columna con el valor monetario unitario. | `precio_unitario` |
+| `columna_cantidad` | Columna con las unidades vendidas. | `cantidad` |
+| `columna_fecha` | Columna con la fecha de la venta (`AAAA-MM-DD`). | `fecha` |
+| `ruta_reporte` | Ruta del reporte Markdown de salida. | `salida/reporte.md` |
+| `ruta_grafica` | Ruta de la gráfica HTML de salida. | `salida/grafica.html` |
+
+Por ejemplo, para usar `datos/ventas_octubre.csv` donde la categoría se llama
+`tipo_producto`:
+
+```json
+{
+  "archivo_datos": "datos/ventas_octubre.csv",
+  "columna_categoria": "tipo_producto"
+}
+```
+
+Después solo hay que ejecutar `python reporte.py`; no se modifica ninguna línea
+de Python. Las columnas fijas `id`, `producto`, `medio_pago` y `estado` deben
+seguir existiendo en el CSV.
 
 ## Datos generados
 
@@ -226,6 +257,8 @@ reporte-ventas/
 ├── generar_datos.py      # dataset de prueba con errores intencionales (#19)
 ├── reporte.py            # procesamiento y reporte Markdown (#20)
 ├── grafica.py            # gráfica interactiva con Plotly (#21)
+├── cargar.py             # configuración externa y lectura del CSV (#22)
+├── config.json           # rutas, columnas y cliente configurables (#22)
 ├── requirements.txt      # dependencias de la gráfica (plotly, pandas)
 └── salida/               # reporte.md y grafica.html (generados, no se versionan)
 ```
